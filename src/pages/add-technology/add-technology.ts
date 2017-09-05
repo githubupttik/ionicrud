@@ -16,8 +16,12 @@ export class AddTechnology {
    // Define FormBuilder /model properties
    public form                   : FormGroup;
    public technologyName         : any;
+   public technologyType         : any;
    public technologyDescription  : any;
-   // Flag to be used for checking whether we are adding/editing an entry
+   public technologyQuantity     : any;
+   public technologyLocation     : any;
+   public technologyStatus       : any;
+      // Flag to be used for checking whether we are adding/editing an entry
    public isEdited               : boolean = false;
    // Flag to hide the form upon successful completion of remote operation
    public hideForm               : boolean = false;
@@ -37,8 +41,7 @@ export class AddTechnology {
 
       // Create form builder validation rules
       this.form = fb.group({
-         "id"                  : ["", Validators.required],
-		 "nama"                : ["", Validators.required],
+         "nama"                : ["", Validators.required],
 		 "jenis_barang"        : ["", Validators.required],
          "detail"        	   : ["", Validators.required],
 		 "jumlah"              : ["", Validators.required],
@@ -93,7 +96,7 @@ export class AddTechnology {
    // for the record data
    createEntry(nama, jenis_barang, detail, jumlah, lokasi, statuse)
    {
-      let body       : string = "key=update&name=" + name + "&jenis_barang=" + jenis_barang + "&detail=" + detail + "&jumlah=" + jumlah + "&lokasi=" + lokasi + "&statuse=" + statuse + "&recordID=" + this.recordID,
+      let body       : string = "key=create&nama=" + nama + "&jenis_barang=" + jenis_barang + "&detail=" + detail + "&jumlah=" + jumlah + "&lokasi=" + lokasi + "&statuse=" + statuse + "&recordID=" + this.recordID,
           type     : string   = "application/x-www-form-urlencoded; charset=UTF-8",
           headers  : any      = new Headers({ 'Content-Type': type}),
           options  : any      = new RequestOptions({ headers: headers }),
@@ -125,7 +128,7 @@ export class AddTechnology {
    // for the record data
    updateEntry(nama, jenis_barang, detail, jumlah, lokasi, statuse)
    {
-      let body       : string = "key=update&name=" + name + "&jenis_barang=" + jenis_barang + "&detail=" + detail + "&jumlah=" + jumlah + "&lokasi=" + lokasi + "&statuse=" + statuse + "&recordID=" + this.recordID,
+      let body       : string = "key=update&nama=" + nama + "&jenis_barang=" + jenis_barang + "&detail=" + detail + "&jumlah=" + jumlah + "&lokasi=" + lokasi + "&statuse=" + statuse + "&recordID=" + this.recordID,
           type       : string = "application/x-www-form-urlencoded; charset=UTF-8",
           headers    : any     = new Headers({ 'Content-Type': type}),
           options    : any     = new RequestOptions({ headers: headers }),

@@ -33,18 +33,6 @@
 
             <ion-list>
                <ion-item-group>
-                  <ion-label floating>Technology Id *</ion-label>
-                  <ion-item>
-                     <ion-input
-                        type="text"
-                        placeholder="Enter a id..."
-                        formControlName="id"
-                        [(ngModel)]="technologyId"></ion-input>
-                  </ion-item>
-            </ion-item-group>
-			
-			<ion-list>
-               <ion-item-group>
                   <ion-label floating>Name *</ion-label>
                   <ion-item>
                      <ion-input
@@ -55,17 +43,19 @@
                   </ion-item>
                </ion-item-group>
 
-
-               <ion-item-group>
-                  <ion-label floating>Type *</ion-label>
-                  <ion-item>
-                     <ion-textarea
-                        placeholder="Type..."
-                        formControlName="jenis_barang"
-                        rows="6"
-                        [(ngModel)]="technologyType"></ion-textarea>
-                  </ion-item>
-               </ion-item-group>
+               <ion-item-group radio-group formControlName="jenis_barang" [(ngModel)]="technologyType">
+                <ion-item-divider color="light">
+                Type
+                </ion-item-divider>
+                <ion-item>
+                    <ion-label>Hardware</ion-label>
+                    <ion-radio value="Hardware"></ion-radio>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Software</ion-label>
+                    <ion-radio value="Software"></ion-radio>
+                </ion-item>
+            </ion-item-group>
 			   
 			   <ion-item-group>
                   <ion-label floating>Description *</ion-label>
