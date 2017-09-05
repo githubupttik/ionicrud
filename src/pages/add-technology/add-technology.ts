@@ -83,7 +83,7 @@ export class AddTechnology {
 	  this.technologyDescription = item.detail;
 	  this.technologyQuantity    = item.jumlah;
 	  this.technologyLocation    = item.lokasi;
-	  this.technologyStatus      = item.statuse;
+	  this.technologyStatus      = item.status;
       this.recordID              = item.id;
    }
 
