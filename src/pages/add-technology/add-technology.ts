@@ -10,7 +10,7 @@ import 'rxjs/add/operator/map';
   selector: 'page-add-technology',
   templateUrl: 'add-technology.html'
 })
-export class FloatingPage { }
+
 export class AddTechnology {
 
    // Define FormBuilder /model properties
