@@ -33,25 +33,81 @@
 
             <ion-list>
                <ion-item-group>
-                  <ion-label floating>Technology Name *</ion-label>
+                  <ion-label floating>Technology Id *</ion-label>
+                  <ion-item>
+                     <ion-input
+                        type="text"
+                        placeholder="Enter a id..."
+                        formControlName="id"
+                        [(ngModel)]="technologyId"></ion-input>
+                  </ion-item>
+            </ion-item-group>
+			
+			<ion-list>
+               <ion-item-group>
+                  <ion-label floating>Name *</ion-label>
                   <ion-item>
                      <ion-input
                         type="text"
                         placeholder="Enter a name..."
-                        formControlName="name"
+                        formControlName="nama"
                         [(ngModel)]="technologyName"></ion-input>
                   </ion-item>
                </ion-item-group>
 
 
                <ion-item-group>
-                  <ion-label floating>Technology Description *</ion-label>
+                  <ion-label floating>Type *</ion-label>
+                  <ion-item>
+                     <ion-textarea
+                        placeholder="Type..."
+                        formControlName="jenis_barang"
+                        rows="6"
+                        [(ngModel)]="technologyType"></ion-textarea>
+                  </ion-item>
+               </ion-item-group>
+			   
+			   <ion-item-group>
+                  <ion-label floating>Description *</ion-label>
                   <ion-item>
                      <ion-textarea
                         placeholder="Description..."
-                        formControlName="description"
+                        formControlName="detail"
                         rows="6"
                         [(ngModel)]="technologyDescription"></ion-textarea>
+                  </ion-item>
+               </ion-item-group>
+			   
+			   <ion-item-group>
+                  <ion-label floating>Quantity *</ion-label>
+                  <ion-item>
+                     <ion-textarea
+                        placeholder="Quantity..."
+                        formControlName="jumlah"
+                        rows="6"
+                        [(ngModel)]="technologyQuantity"></ion-textarea>
+                  </ion-item>
+               </ion-item-group>
+			   
+			   <ion-item-group>
+                  <ion-label floating>Location *</ion-label>
+                  <ion-item>
+                     <ion-textarea
+                        placeholder="Location..."
+                        formControlName="lokasi"
+                        rows="6"
+                        [(ngModel)]="technologyLocation"></ion-textarea>
+                  </ion-item>
+               </ion-item-group>
+			   
+			   <ion-item-group>
+                  <ion-label floating>Status *</ion-label>
+                  <ion-item>
+                     <ion-textarea
+                        placeholder="Status..."
+                        formControlName="statuse"
+                        rows="6"
+                        [(ngModel)]="technologyStatus"></ion-textarea>
                   </ion-item>
                </ion-item-group>
 

@@ -37,8 +37,14 @@ export class AddTechnology {
 
       // Create form builder validation rules
       this.form = fb.group({
-         "name"                  : ["", Validators.required],
-         "description"           : ["", Validators.required]
+         "id"                  : ["", Validators.required],
+		 "nama"                : ["", Validators.required],
+		 "jenis_barang"        : ["", Validators.required],
+         "detail"        	   : ["", Validators.required],
+		 "jumlah"              : ["", Validators.required],
+		 "lokasi"              : ["", Validators.required],
+		 "statuse"             : ["", Validators.required]
+		 
       });
    }
 
@@ -69,8 +75,12 @@ export class AddTechnology {
    // used as models on the page's HTML form
    selectEntry(item)
    {
-      this.technologyName        = item.name;
-      this.technologyDescription = item.description;
+      this.technologyName        = item.nama;
+      this.technologyType 		 = item.jenis_barang;
+	  this.technologyDescription = item.detail;
+	  this.technologyQuantity    = item.jumlah;
+	  this.technologyLocation    = item.lokasi;
+	  this.technologyStatus      = item.statuse;
       this.recordID              = item.id;
    }
 
@@ -81,9 +91,9 @@ export class AddTechnology {
    // to our remote PHP script (note the body variable we have created which
    // supplies a variable of key with a value of create followed by the key/value pairs
    // for the record data
-   createEntry(name, description)
+   createEntry(nama, jenis_barang, detail, jumlah, lokasi, statuse)
    {
-      let body     : string   = "key=create&name=" + name + "&description=" + description,
+      let body       : string = "key=update&name=" + name + "&jenis_barang=" + jenis_barang + "&detail=" + detail + "&jumlah=" + jumlah + "&lokasi=" + lokasi + "&statuse=" + statuse + "&recordID=" + this.recordID,
           type     : string   = "application/x-www-form-urlencoded; charset=UTF-8",
           headers  : any      = new Headers({ 'Content-Type': type}),
           options  : any      = new RequestOptions({ headers: headers }),
@@ -96,7 +106,7 @@ export class AddTechnology {
          if(data.status === 200)
          {
             this.hideForm   = true;
-            this.sendNotification(`Congratulations the technology: ${name} was successfully added`);
+            this.sendNotification(`Congratulations the technology: ${nama} was successfully added`);
          }
          // Otherwise let 'em know anyway
          else
@@ -113,9 +123,9 @@ export class AddTechnology {
    // to our remote PHP script (note the body variable we have created which
    // supplies a variable of key with a value of update followed by the key/value pairs
    // for the record data
-   updateEntry(name, description)
+   updateEntry(nama, jenis_barang, detail, jumlah, lokasi, statuse)
    {
-      let body       : string = "key=update&name=" + name + "&description=" + description + "&recordID=" + this.recordID,
+      let body       : string = "key=update&name=" + name + "&jenis_barang=" + jenis_barang + "&detail=" + detail + "&jumlah=" + jumlah + "&lokasi=" + lokasi + "&statuse=" + statuse + "&recordID=" + this.recordID,
           type       : string = "application/x-www-form-urlencoded; charset=UTF-8",
           headers    : any     = new Headers({ 'Content-Type': type}),
           options    : any     = new RequestOptions({ headers: headers }),
@@ -128,7 +138,7 @@ export class AddTechnology {
          if(data.status === 200)
          {
             this.hideForm  =  true;
-            this.sendNotification(`Congratulations the technology: ${name} was successfully updated`);
+            this.sendNotification(`Congratulations the technology: ${nama} was successfully updated`);
          }
          // Otherwise let 'em know anyway
          else
@@ -178,16 +188,20 @@ export class AddTechnology {
    // existing record
    saveEntry()
    {
-      let name          : string = this.form.controls["name"].value,
-          description   : string    = this.form.controls["description"].value;
+      let nama          : string = this.form.controls["nama"].value,
+		  jenis_barang  : string = this.form.controls["jenis_barang"].value,
+          detail	    : string    = this.form.controls["detail"].value,
+		  jumlah        : string = this.form.controls["jumlah"].value,
+		  lokasi        : string = this.form.controls["lokasi"].value,
+		  statuse        : string = this.form.controls["statuse"].value;
 
       if(this.isEdited)
       {
-         this.updateEntry(name, description);
+         this.updateEntry(nama, jenis_barang, detail, jumlah, lokasi, statuse);
       }
       else
       {
-         this.createEntry(name, description);
+         this.createEntry(nama, jenis_barang, detail, jumlah, lokasi, statuse);
       }
    }
 
@@ -197,7 +211,11 @@ export class AddTechnology {
    resetFields() : void
    {
       this.technologyName           = "";
-      this.technologyDescription    = "";
+      this.technologyType    		= "";
+	  this.technologyDescription    = "";
+	  this.technologyQuantity       = "";
+	  this.technologyLocation       = "";
+	  this.technologyStatus         = "";
    }
 
 
