@@ -25,7 +25,7 @@ export class AddTechnology {
    public pageTitle              : string;
    // Property to store the recordID for when an existing entry is being edited
    public recordID               : any      = null;
-   private baseURI               : string  = "http://localhost/ionic/";
+   private baseURI               : string  = "http://192.168.6.53/ionic/";
 
    // Initialise module classes
    constructor(public navCtrl    : NavController,

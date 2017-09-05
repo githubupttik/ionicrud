@@ -29,7 +29,7 @@ export class HomePage {
    // assign this to the items array for rendering to the HTML template
    load()
    {
-      this.http.get('http://localhost/ionic/retrieve-data.php')
+      this.http.get('http://192.168.6.53/ionic/retrieve-data.php')
       .map(res => res.json())
       .subscribe(data =>
       {
