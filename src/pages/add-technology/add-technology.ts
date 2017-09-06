@@ -44,11 +44,12 @@ export class AddTechnology {
          "nama"                : ["", Validators.required],
 		 "jenis_barang"        : ["", Validators.required],
          "detail"        	   : ["", Validators.required],
-		 "jumlah"              : ["", Validators.required],
+		 "jumlah"              : ["", Validators.compose([ Validators.pattern('[0-9]*'), Validators.required])],
 		 "lokasi"              : ["", Validators.required],
 		 "statuse"             : ["", Validators.required]
 		 
       });
+      
    }
 
 
@@ -96,7 +97,7 @@ export class AddTechnology {
    // for the record data
    createEntry(nama, jenis_barang, detail, jumlah, lokasi, statuse)
    {
-      let body       : string = "key=create&nama=" + nama + "&jenis_barang=" + jenis_barang + "&detail=" + detail + "&jumlah=" + jumlah + "&lokasi=" + lokasi + "&statuse=" + statuse + "&recordID=" + this.recordID,
+      let body       : string = "key=create&nama=" + nama + "&jenis_barang=" + jenis_barang + "&detail=" + detail + "&jumlah=" + jumlah + "&lokasi=" + lokasi + "&status=" + statuse + "&recordID=" + this.recordID,
           type     : string   = "application/x-www-form-urlencoded; charset=UTF-8",
           headers  : any      = new Headers({ 'Content-Type': type}),
           options  : any      = new RequestOptions({ headers: headers }),

@@ -32,74 +32,66 @@
          <form [formGroup]="form" (ngSubmit)="saveEntry()">
 
             <ion-list>
-               <ion-item-group>
-                  <ion-label floating>Name *</ion-label>
-                  <ion-item>
-                     <ion-input
+               <ion-item>
+                  <ion-label floating>Nama *</ion-label>
+                  <ion-input
                         type="text"
-                        placeholder="Enter a name..."
                         formControlName="nama"
                         [(ngModel)]="technologyName"></ion-input>
-                  </ion-item>
-               </ion-item-group>
+                  
+               </ion-item>
 
-               <ion-item-group radio-group formControlName="jenis_barang" [(ngModel)]="technologyType">
-                <ion-item-divider color="light">
-                Type
-                </ion-item-divider>
-                <ion-item>
-                    <ion-label>Hardware</ion-label>
-                    <ion-radio value="Hardware"></ion-radio>
+               <ion-item>
+                    <ion-label floating>Type *</ion-label>
+                    <ion-select formControlName="jenis_barang" [(ngModel)]="technologyType">
+                        <ion-option value="Hardware" checked="true">Hardware</ion-option>
+                        <ion-option value="Software">Software</ion-option>
+                        
+                    </ion-select>
                 </ion-item>
-                <ion-item>
-                    <ion-label>Software</ion-label>
-                    <ion-radio value="Software"></ion-radio>
-                </ion-item>
-            </ion-item-group>
 			   
-			   <ion-item-group>
+			   <ion-item>
                   <ion-label floating>Description *</ion-label>
-                  <ion-item>
+                  
                      <ion-textarea
-                        placeholder="Description..."
+                       
                         formControlName="detail"
                         rows="6"
                         [(ngModel)]="technologyDescription"></ion-textarea>
-                  </ion-item>
-               </ion-item-group>
+                 
+               </ion-item>
 			   
-			   <ion-item-group>
+			   <ion-item>
                   <ion-label floating>Quantity *</ion-label>
-                  <ion-item>
-                     <ion-textarea
-                        placeholder="Quantity..."
+                 
+                     <ion-input
+                       
                         formControlName="jumlah"
                         rows="6"
-                        [(ngModel)]="technologyQuantity"></ion-textarea>
+                        [(ngModel)]="technologyQuantity"></ion-input>
                   </ion-item>
-               </ion-item-group>
+              
 			   
-			   <ion-item-group>
+			   <ion-item>
                   <ion-label floating>Location *</ion-label>
-                  <ion-item>
-                     <ion-textarea
+                 
+                     <ion-input
                         placeholder="Location..."
                         formControlName="lokasi"
                         rows="6"
-                        [(ngModel)]="technologyLocation"></ion-textarea>
+                        [(ngModel)]="technologyLocation"></ion-input>
                   </ion-item>
-               </ion-item-group>
+              
+			   <ion-item>
+                    <ion-label floating>Status *</ion-label>
+                    <ion-select formControlName="statuse" [(ngModel)]="technologyStatus">
+                        <ion-option value="Pinjam" checked="true">Pinjam</ion-option>
+                        <ion-option value="Hibah">Hibah</ion-option>
+                        <ion-option value="Jual">Jual</ion-option>
+                        <ion-option value="Gudang">Gudang</ion-option>
+                    </ion-select>
+                </ion-item>
 			   
-			   <ion-item-group>
-                  <ion-label floating>Status *</ion-label>
-                  <ion-item>
-                     <ion-textarea
-                        placeholder="Status..."
-                        formControlName="statuse"
-                        rows="6"
-                        [(ngModel)]="technologyStatus"></ion-textarea>
-                  </ion-item>
-               </ion-item-group>
 
 
                <ion-item>
