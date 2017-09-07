@@ -129,7 +129,7 @@ export class AddTechnology {
    // for the record data
    updateEntry(nama, jenis_barang, detail, jumlah, lokasi, statuse)
    {
-      let body       : string = "key=update&nama=" + nama + "&jenis_barang=" + jenis_barang + "&detail=" + detail + "&jumlah=" + jumlah + "&lokasi=" + lokasi + "&statuse=" + statuse + "&recordID=" + this.recordID,
+      let body       : string = "key=create&nama=" + nama + "&jenis_barang=" + jenis_barang + "&detail=" + detail + "&jumlah=" + jumlah + "&lokasi=" + lokasi + "&status=" + statuse + "&recordID=" + this.recordID,
           type       : string = "application/x-www-form-urlencoded; charset=UTF-8",
           headers    : any     = new Headers({ 'Content-Type': type}),
           options    : any     = new RequestOptions({ headers: headers }),
@@ -161,7 +161,7 @@ export class AddTechnology {
    // for the record ID we want to remove from the remote database
    deleteEntry()
    {
-      let name       : string = this.form.controls["name"].value,
+      let name       : string = this.form.controls["nama"].value,
           body       : string    = "key=delete&recordID=" + this.recordID,
           type       : string = "application/x-www-form-urlencoded; charset=UTF-8",
           headers    : any    = new Headers({ 'Content-Type': type}),
@@ -197,7 +197,7 @@ export class AddTechnology {
           detail	    : string    = this.form.controls["detail"].value,
 		  jumlah        : string = this.form.controls["jumlah"].value,
 		  lokasi        : string = this.form.controls["lokasi"].value,
-		  statuse        : string = this.form.controls["statuse"].value;
+		  statuse       : string = this.form.controls["statuse"].value;
 
       if(this.isEdited)
       {
